@@ -166,17 +166,16 @@ h1{
     color:#8d8981;
     font-size:14px;
     letter-spacing:1px;
-    margin-bottom:25px;
+    margin-bottom:30px;
 }
 
-/* HOST BUTTONS */
-.host-button{
+/* GOLDHEN BUTTON */
+.goldhen{
     position:relative;
 
     width:min(480px,90%);
 
-    padding:18px 25px;
-    margin:8px auto;
+    padding:20px 30px;
 
     border:1px solid #8e2929;
 
@@ -190,21 +189,22 @@ h1{
     color:#ddd5c5;
 
     font-family:Georgia,serif;
-    font-size:16px;
+    font-size:18px;
     font-weight:bold;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     cursor:pointer;
 
-    transition:.3s ease;
+    transition:
+        .3s ease;
 
     box-shadow:
         0 0 20px rgba(100,0,0,.25),
         inset 0 0 20px rgba(0,0,0,.5);
 }
 
-.host-button:hover{
+.goldhen:hover{
     transform:scale(1.025);
 
     border-color:#c24a4a;
@@ -221,21 +221,13 @@ h1{
         inset 0 0 25px rgba(0,0,0,.5);
 }
 
-.host-button:active{
+.goldhen:active{
     transform:scale(.98);
-}
-
-.version{
-    display:block;
-    font-size:11px;
-    letter-spacing:2px;
-    color:#8b8175;
-    margin-top:7px;
 }
 
 /* STATUS */
 .status{
-    margin-top:20px;
+    margin-top:25px;
 
     font-size:11px;
     letter-spacing:3px;
@@ -282,14 +274,10 @@ footer{
         padding:28px 15px 32px;
     }
 
-    .host-button{
-        font-size:13px;
-        letter-spacing:2px;
-        padding:17px 12px;
-    }
-
-    .version{
-        font-size:9px;
+    .goldhen{
+        font-size:14px;
+        letter-spacing:3px;
+        padding:18px 15px;
     }
 }
 </style>
@@ -325,36 +313,26 @@ footer{
         </div>
 
         <h2>
-            PS4 HOST
+            GOLDHEN HOST
         </h2>
 
         <p>
-            Select your compatible firmware host
+            Firmware detection & compatible WebKit host
         </p>
 
-        <!-- 7.00 - 11.02 -->
         <button
-            class="host-button"
+            class="goldhen"
             onclick="launchHost('https://zecoxao.github.io/ntfonto/')">
 
             ★ &nbsp; PS4 7.00 → 11.02 &nbsp; ★
 
-            <span class="version">
-                NT FONT TOOL
-            </span>
-
         </button>
 
-        <!-- 11.50 - 13.00 -->
         <button
-            class="host-button"
+            class="goldhen"
             onclick="launchHost('https://raw-game.com/zrm')">
 
             ★ &nbsp; PS4 11.50 → 13.00 &nbsp; ★
-
-            <span class="version">
-                ZRM HOST
-            </span>
 
         </button>
 
@@ -387,7 +365,8 @@ function launchHost(url){
 
     setTimeout(function(){
 
-        window.location.href = url;
+        window.location.href =
+            REAL_HOST;
 
     },350);
 }
