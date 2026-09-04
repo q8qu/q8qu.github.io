@@ -3,281 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AYHAM — YHARNAM HOST</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    font-family:Georgia, "Times New Roman", serif;
-    background:#090a0c;
-}
-
-/* BACKGROUND */
-body{
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #eee;
     background:
-        linear-gradient(
-            to bottom,
-            rgba(5,7,10,.25),
-            rgba(5,6,8,.88)
-        ),
-        url("gehrman.jpg") center center / cover no-repeat;
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.78)),
+        url("Bloodborne.jpg") center center / cover no-repeat fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* DARK OVERLAY */
-.overlay{
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(
-            circle at center,
-            transparent 15%,
-            rgba(0,0,0,.35) 55%,
-            rgba(0,0,0,.9) 100%
-        );
-    pointer-events:none;
+.container {
+    width: 92%;
+    max-width: 700px;
+    text-align: center;
 }
 
-/* FOG */
-.fog{
-    position:fixed;
-    inset:-30%;
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(210,215,210,.10),
-            transparent 65%
-        );
-    filter:blur(35px);
-    animation:fogMove 18s infinite alternate ease-in-out;
-    pointer-events:none;
+.header {
+    margin-bottom: 30px;
 }
 
-@keyframes fogMove{
-    from{
-        transform:translateX(-5%) translateY(0);
-    }
-    to{
-        transform:translateX(5%) translateY(-2%);
-    }
+.small {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #aaa;
+    margin-bottom: 12px;
 }
 
-/* MAIN */
-.container{
-    position:relative;
-    z-index:5;
-
-    width:100%;
-    height:100%;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    padding:25px;
-    text-align:center;
+h1 {
+    font-size: 48px;
+    letter-spacing: 8px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 20px #000;
 }
 
-/* HEADER */
-.small{
-    font-size:12px;
-    letter-spacing:5px;
-    color:#aaa79d;
-    margin-bottom:15px;
+.subtitle {
+    font-size: 20px;
+    letter-spacing: 5px;
+    color: #bbb;
 }
 
-h1{
-    font-size:clamp(35px,7vw,75px);
-    letter-spacing:9px;
-    color:#ddd8ca;
-    text-shadow:
-        0 3px 15px #000,
-        0 0 30px rgba(130,20,20,.35);
+.motto {
+    margin-top: 18px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #aaa;
 }
 
-.subtitle{
-    margin-top:8px;
-    font-size:14px;
-    letter-spacing:7px;
-    color:#8e8880;
+.panel {
+    background: rgba(10,10,10,.82);
+    border: 1px solid rgba(180,180,180,.25);
+    padding: 35px 28px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.7);
 }
 
-.motto{
-    margin-top:25px;
-    font-style:italic;
-    font-size:18px;
-    letter-spacing:3px;
-    color:#b7b0a3;
+.panel h2 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
 }
 
-.divider{
-    width:230px;
-    height:1px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #8d2929,
-        transparent
-    );
-    margin:30px 0;
+.description {
+    color: #aaa;
+    margin-bottom: 28px;
 }
 
-/* HOST PANEL */
-.panel{
-    width:min(620px,92vw);
-
-    padding:35px 25px 40px;
-
-    background:rgba(5,6,8,.72);
-
-    border:1px solid rgba(150,120,90,.28);
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.8),
-        inset 0 0 40px rgba(0,0,0,.5);
-
-    backdrop-filter:blur(5px);
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.panel-title{
-    font-size:12px;
-    letter-spacing:5px;
-    color:#817a70;
-    margin-bottom:10px;
+.host-button {
+    width: 100%;
+    padding: 18px 15px;
+    border: 1px solid #777;
+    background: rgba(25,25,25,.9);
+    color: #eee;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .25s;
 }
 
-.panel h2{
-    font-size:25px;
-    letter-spacing:5px;
-    color:#d0c8b8;
-    margin-bottom:12px;
+.host-button:hover {
+    background: rgba(70,70,70,.9);
+    border-color: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.5);
 }
 
-.panel p{
-    color:#8d8981;
-    font-size:14px;
-    letter-spacing:1px;
-    margin-bottom:30px;
+.status {
+    margin-top: 25px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #888;
 }
 
-/* GOLDHEN BUTTON */
-.goldhen{
-    position:relative;
-
-    width:min(480px,90%);
-
-    padding:20px 30px;
-
-    border:1px solid #8e2929;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(120,25,25,.65),
-            rgba(45,8,8,.85)
-        );
-
-    color:#ddd5c5;
-
-    font-family:Georgia,serif;
-    font-size:18px;
-    font-weight:bold;
-
-    letter-spacing:4px;
-
-    cursor:pointer;
-
-    transition:
-        .3s ease;
-
-    box-shadow:
-        0 0 20px rgba(100,0,0,.25),
-        inset 0 0 20px rgba(0,0,0,.5);
+footer {
+    margin-top: 25px;
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 3px;
 }
 
-.goldhen:hover{
-    transform:scale(1.025);
-
-    border-color:#c24a4a;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(150,30,30,.8),
-            rgba(65,8,8,.9)
-        );
-
-    box-shadow:
-        0 0 35px rgba(150,20,20,.45),
-        inset 0 0 25px rgba(0,0,0,.5);
-}
-
-.goldhen:active{
-    transform:scale(.98);
-}
-
-/* STATUS */
-.status{
-    margin-top:25px;
-
-    font-size:11px;
-    letter-spacing:3px;
-
-    color:#77736c;
-}
-
-.status span{
-    color:#9b3737;
-}
-
-/* FOOTER */
-footer{
-    position:absolute;
-    bottom:20px;
-
-    font-size:10px;
-    letter-spacing:4px;
-
-    color:#67635c;
-}
-
-.created{
-    margin-top:7px;
-    color:#504d48;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-
-    h1{
-        letter-spacing:5px;
+@media(max-width:600px) {
+    h1 {
+        font-size: 34px;
+        letter-spacing: 5px;
     }
 
-    .subtitle{
-        letter-spacing:4px;
+    .subtitle {
+        font-size: 15px;
     }
 
-    .motto{
-        font-size:15px;
-    }
-
-    .panel{
-        padding:28px 15px 32px;
-    }
-
-    .goldhen{
-        font-size:14px;
-        letter-spacing:3px;
-        padding:18px 15px;
+    .panel {
+        padding: 28px 18px;
     }
 }
 </style>
@@ -285,93 +140,52 @@ footer{
 
 <body>
 
-<div class="overlay"></div>
-<div class="fog"></div>
-
 <div class="container">
 
-    <div class="small">
-        PLAYSTATION 4 • PRIVATE HOST
+    <div class="header">
+        <div class="small">PLAYSTATION 4 • PRIVATE HOST</div>
+
+        <h1>AYHAM</h1>
+
+        <div class="subtitle">YHARNAM HOST</div>
+
+        <div class="motto">Fear the old blood</div>
     </div>
-
-    <h1>AYHAM</h1>
-
-    <div class="subtitle">
-        YHARNAM HOST
-    </div>
-
-    <div class="motto">
-        Fear the old blood
-    </div>
-
-    <div class="divider"></div>
 
     <div class="panel">
 
-        <div class="panel-title">
-            HUNTER'S DREAM
-        </div>
+        <h2>HUNTER'S DREAM</h2>
 
-        <h2>
-            GOLDHEN HOST
-        </h2>
-
-        <p>
-            Firmware detection & compatible WebKit host
+        <p class="description">
+            Select your compatible PS4 firmware host
         </p>
 
-        <button
-            class="goldhen"
-            onclick="launchHost('https://zecoxao.github.io/ntfonto/')">
+        <div class="buttons">
 
-            ★ &nbsp; PS4 7.00 → 11.02 &nbsp; ★
+            <button class="host-button"
+                onclick="window.location.href='https://zecoxao.github.io/ntfonto/'">
+                ★ PS4 7.00 → 11.02 ★
+            </button>
 
-        </button>
+            <button class="host-button"
+                onclick="window.location.href='https://raw-game.com/zrm/'">
+                ★ PS4 11.50 → 13.00 ★
+            </button>
 
-        <button
-            class="goldhen"
-            onclick="launchHost('https://raw-game.com/zrm')">
-
-            ★ &nbsp; PS4 11.50 → 13.00 &nbsp; ★
-
-        </button>
+        </div>
 
         <div class="status">
-            HOST STATUS:
-            <span id="state">READY</span>
+            HOST STATUS: READY
         </div>
 
     </div>
 
     <footer>
-        FEAR THE OLD BLOOD
-
-        <div class="created">
-            CREATED BY AYHAM
-        </div>
+        FEAR THE OLD BLOOD<br><br>
+        CREATED BY AYHAM
     </footer>
 
 </div>
-
-<script>
-
-function launchHost(url){
-
-    const state =
-        document.getElementById("state");
-
-    state.textContent =
-        "OPENING HOST...";
-
-    setTimeout(function(){
-
-        window.location.href =
-            REAL_HOST;
-
-    },350);
-}
-
-</script>
 
 </body>
 </html>
