@@ -166,16 +166,17 @@ h1{
     color:#8d8981;
     font-size:14px;
     letter-spacing:1px;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
-/* GOLDHEN BUTTON */
-.goldhen{
+/* HOST BUTTONS */
+.host-button{
     position:relative;
 
     width:min(480px,90%);
 
-    padding:20px 30px;
+    padding:18px 25px;
+    margin:8px auto;
 
     border:1px solid #8e2929;
 
@@ -189,22 +190,21 @@ h1{
     color:#ddd5c5;
 
     font-family:Georgia,serif;
-    font-size:18px;
+    font-size:16px;
     font-weight:bold;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
 
     cursor:pointer;
 
-    transition:
-        .3s ease;
+    transition:.3s ease;
 
     box-shadow:
         0 0 20px rgba(100,0,0,.25),
         inset 0 0 20px rgba(0,0,0,.5);
 }
 
-.goldhen:hover{
+.host-button:hover{
     transform:scale(1.025);
 
     border-color:#c24a4a;
@@ -221,13 +221,21 @@ h1{
         inset 0 0 25px rgba(0,0,0,.5);
 }
 
-.goldhen:active{
+.host-button:active{
     transform:scale(.98);
+}
+
+.version{
+    display:block;
+    font-size:11px;
+    letter-spacing:2px;
+    color:#8b8175;
+    margin-top:7px;
 }
 
 /* STATUS */
 .status{
-    margin-top:25px;
+    margin-top:20px;
 
     font-size:11px;
     letter-spacing:3px;
@@ -274,10 +282,14 @@ footer{
         padding:28px 15px 32px;
     }
 
-    .goldhen{
-        font-size:14px;
-        letter-spacing:3px;
-        padding:18px 15px;
+    .host-button{
+        font-size:13px;
+        letter-spacing:2px;
+        padding:17px 12px;
+    }
+
+    .version{
+        font-size:9px;
     }
 }
 </style>
@@ -313,18 +325,36 @@ footer{
         </div>
 
         <h2>
-            GOLDHEN HOST
+            PS4 HOST
         </h2>
 
         <p>
-            Firmware detection & compatible WebKit host
+            Select your compatible firmware host
         </p>
 
+        <!-- 7.00 - 11.02 -->
         <button
-            class="goldhen"
-            onclick="launchHost()">
+            class="host-button"
+            onclick="launchHost('https://zecoxao.github.io/ntfonto/')">
 
-            ★ &nbsp; LAUNCH GOLDHEN &nbsp; ★
+            ★ &nbsp; PS4 7.00 → 11.02 &nbsp; ★
+
+            <span class="version">
+                NT FONT TOOL
+            </span>
+
+        </button>
+
+        <!-- 11.50 - 13.00 -->
+        <button
+            class="host-button"
+            onclick="launchHost('https://raw-game.com/zrm')">
+
+            ★ &nbsp; PS4 11.50 → 13.00 &nbsp; ★
+
+            <span class="version">
+                ZRM HOST
+            </span>
 
         </button>
 
@@ -347,10 +377,7 @@ footer{
 
 <script>
 
-const REAL_HOST =
-    "https://gamerhack.github.io/g2all/";
-
-function launchHost(){
+function launchHost(url){
 
     const state =
         document.getElementById("state");
@@ -360,8 +387,7 @@ function launchHost(){
 
     setTimeout(function(){
 
-        window.location.href =
-            REAL_HOST;
+        window.location.href = url;
 
     },350);
 }
